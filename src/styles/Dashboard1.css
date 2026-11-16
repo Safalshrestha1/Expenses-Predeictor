@@ -1541,3 +1541,535 @@ button.nav-item {
   font-size: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
+
+/* ==========================================================================
+   DARK THEME
+   Applies when <html data-theme="dark"> (set from Settings -> Theme).
+   Generated from the rules above: same selectors, dark colors. The light
+   theme is untouched. Keep this block at the very end of the file.
+   ========================================================================== */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="dark"] body {
+  background: #0f1115;
+  color: #cfd7e9;
+}
+
+:root[data-theme="dark"] .sidebar {
+  background: #171a21;
+  border-right: 1px solid #212835;
+}
+
+:root[data-theme="dark"] .brand {
+  border-bottom: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .brand-icon {
+  background: #dce2f0;
+  color: #111827;
+}
+
+:root[data-theme="dark"] .nav-section-title {
+  color: #818b9d;
+}
+
+:root[data-theme="dark"] .nav-item {
+  color: #a1a8b7;
+}
+
+:root[data-theme="dark"] .nav-item:hover {
+  background: #171f2b;
+  color: #d6dded;
+}
+
+:root[data-theme="dark"] .nav-item.active {
+  background: #dce2f0;
+  color: #111827;
+}
+
+:root[data-theme="dark"] .nav-item.logout {
+  color: #ce5656;
+}
+
+:root[data-theme="dark"] .sidebar-footer {
+  border-top: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .user-mini small {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .avatar {
+  background: #dce2f0;
+  color: #111827;
+}
+
+:root[data-theme="dark"] .topbar {
+  border-bottom: 1px solid #212835;
+}
+
+:root[data-theme="dark"] .breadcrumb {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .icon-button {
+  border: 1px solid #232a36;
+  background: #171a21;
+}
+
+:root[data-theme="dark"] .profile span {
+  color: #868fa1;
+}
+
+:root[data-theme="dark"] .welcome-section p {
+  color: #9ca3af;
+}
+
+:root[data-theme="dark"] .summary-card {
+  background: #171a21;
+  border: 1px solid #212835;
+}
+
+:root[data-theme="dark"] .card-top > span {
+  color: #9ca3af;
+}
+
+:root[data-theme="dark"] .balance {
+  background: #1c242f;
+}
+
+:root[data-theme="dark"] .income {
+  background: #173725;
+  color: #87dcaf;
+}
+
+:root[data-theme="dark"] .expense {
+  background: #2d1313;
+  color: #cc6060;
+}
+
+:root[data-theme="dark"] .prediction {
+  background: #1c1632;
+  color: #7b6bc1;
+}
+
+:root[data-theme="dark"] .summary-card p span {
+  color: #868fa1;
+}
+
+:root[data-theme="dark"] .positive {
+  color: #87dcaf;
+}
+
+:root[data-theme="dark"] .negative {
+  color: #cc6060;
+}
+
+:root[data-theme="dark"] .dashboard-card {
+  background: #171a21;
+  border: 1px solid #212835;
+}
+
+:root[data-theme="dark"] .section-header p {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .section-header select {
+  border: 1px solid #262e3a;
+  background: #171a21;
+  color: #acb2be;
+}
+
+:root[data-theme="dark"] .overview-stats span {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .chart-y-axis span {
+  color: #808999;
+}
+
+:root[data-theme="dark"] .grid-line {
+  border-top: 1px dashed #202733;
+}
+
+:root[data-theme="dark"] .income-bar {
+  background: #dce2f0;
+}
+
+:root[data-theme="dark"] .expense-bar {
+  background: #4f5866;
+}
+
+:root[data-theme="dark"] .bar-group small {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .chart-legend {
+  color: #9ca3ae;
+}
+
+:root[data-theme="dark"] .income-dot {
+  background: #dce2f0;
+}
+
+:root[data-theme="dark"] .expense-dot {
+  background: #4f5866;
+}
+
+:root[data-theme="dark"] .donut::before {
+  background: #171a21;
+}
+
+:root[data-theme="dark"] .donut-center span {
+  color: #8b93a1;
+}
+
+:root[data-theme="dark"] .category-dot {
+  background: #7a8391;
+}
+
+:root[data-theme="dark"] .prediction-badge {
+  background: #1c1632;
+  color: #796cbf;
+}
+
+:root[data-theme="dark"] .warning-badge {
+  background: #382d18;
+  color: #dbb782;
+}
+
+:root[data-theme="dark"] .prediction-main span {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .prediction-change {
+  color: #dbb782 !important;
+}
+
+:root[data-theme="dark"] .prediction-range {
+  border-top: 1px solid #1d2530;
+  border-bottom: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .prediction-range span {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .prediction-info {
+  background: #181d27;
+}
+
+:root[data-theme="dark"] .prediction-info p {
+  color: #9ca3ae;
+}
+
+:root[data-theme="dark"] .primary-button {
+  background: #dce2f0;
+  color: #111827;
+}
+
+:root[data-theme="dark"] .secondary-button {
+  border: 1px solid #29303b;
+  background: #171a21;
+}
+
+:root[data-theme="dark"] .text-button {
+  color: #b0b9c7;
+}
+
+:root[data-theme="dark"] .budget-numbers span {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .progress-label {
+  color: #9ca3af;
+}
+
+:root[data-theme="dark"] .progress-bar {
+  background: #222932;
+}
+
+:root[data-theme="dark"] .progress-fill {
+  background: #ceb48c;
+}
+
+:root[data-theme="dark"] .budget-warning {
+  background: #302715;
+}
+
+:root[data-theme="dark"] .budget-warning strong {
+  color: #dbb782;
+}
+
+:root[data-theme="dark"] .budget-warning p {
+  color: #bcae95;
+}
+
+:root[data-theme="dark"] .insight-card {
+  border: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .insight-icon {
+  background: #1d2027;
+}
+
+:root[data-theme="dark"] .insight-card p {
+  color: #99a1ac;
+}
+
+:root[data-theme="dark"] .quick-action {
+  background: #171a21;
+  border: 1px solid #212835;
+}
+
+:root[data-theme="dark"] .quick-icon {
+  background: #1f222b;
+}
+
+:root[data-theme="dark"] .income-icon {
+  background: #173725;
+  color: #86dcae;
+}
+
+:root[data-theme="dark"] .budget-icon {
+  background: #382d18;
+  color: #dbb782;
+}
+
+:root[data-theme="dark"] .analytics-icon {
+  background: #1c1632;
+  color: #7e6fc0;
+}
+
+:root[data-theme="dark"] .quick-action p {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .quick-action button {
+  color: #a1a8b1;
+}
+
+:root[data-theme="dark"] .table-header {
+  background: #181d27;
+  color: #8c95a4;
+}
+
+:root[data-theme="dark"] .transaction-row {
+  border-bottom: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .transaction-category {
+  color: #99a1ad;
+}
+
+:root[data-theme="dark"] .amount-income {
+  color: #86dcae;
+}
+
+:root[data-theme="dark"] .amount-expense {
+  color: #cc6060;
+}
+
+:root[data-theme="dark"] .type-income {
+  background: #173725;
+  color: #86dcae;
+}
+
+:root[data-theme="dark"] .type-expense {
+  background: #2d1313;
+  color: #cc6060;
+}
+
+:root[data-theme="dark"] .recurring-row {
+  border-bottom: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .recurring-icon {
+  background: #1e2128;
+}
+
+:root[data-theme="dark"] .recurring-info span {
+  color: #8c95a4;
+}
+
+:root[data-theme="dark"] .upcoming-total span {
+  color: #969ea9;
+}
+
+:root[data-theme="dark"] .savings-main span {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .savings-main .savings-rate {
+  color: #86dcae;
+}
+
+:root[data-theme="dark"] .savings-progress {
+  background: #92d0af;
+}
+
+:root[data-theme="dark"] .savings-goal p {
+  color: #99a1ac;
+}
+
+:root[data-theme="dark"] .health-item {
+  border: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .health-icon {
+  background: #1e242a;
+}
+
+:root[data-theme="dark"] .health-item span {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .health-item p {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .health-summary {
+  background: #181d27;
+  color: #9ca4af;
+}
+
+:root[data-theme="dark"] .dashboard-footer {
+  color: #838c9c;
+}
+
+:root[data-theme="dark"] .filter-tab {
+  border: 1px solid #262e3a;
+  background: #171a21;
+  color: #a1a8b7;
+}
+
+:root[data-theme="dark"] .filter-tab.active {
+  background: #dce2f0;
+  color: #111827;
+  border-color: #dce2f0;
+}
+
+:root[data-theme="dark"] .row-del {
+  color: #6d7b91;
+}
+
+:root[data-theme="dark"] .row-del:hover {
+  color: #cc6060;
+}
+
+:root[data-theme="dark"] .empty-note {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .ok-badge {
+  background: #173725;
+  color: #87dcaf;
+}
+
+:root[data-theme="dark"] .progress-fill.good {
+  background: #92d0af;
+}
+
+:root[data-theme="dark"] .progress-fill.bad {
+  background: #b65454;
+}
+
+:root[data-theme="dark"] .budget-warning.good {
+  background: #173725;
+}
+
+:root[data-theme="dark"] .budget-warning.good strong {
+  color: #87dcaf;
+}
+
+:root[data-theme="dark"] .savings-rate.negative {
+  color: #cc6060;
+}
+
+:root[data-theme="dark"] .notif-dot {
+  background: #b65454;
+  border: 2px solid #171a21;
+}
+
+:root[data-theme="dark"] .dropdown-panel {
+  background: #171a21;
+  border: 1px solid #212835;
+}
+
+:root[data-theme="dark"] .dropdown-title {
+  color: #a1a8b7;
+}
+
+:root[data-theme="dark"] .notif-item {
+  color: #acb2be;
+}
+
+:root[data-theme="dark"] .notif-item:hover {
+  background: #171f2b;
+}
+
+:root[data-theme="dark"] .notif-empty {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .modal-box {
+  background: #171a21;
+}
+
+:root[data-theme="dark"] .modal-box .modal-sub {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .modal-close {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .form-field label {
+  color: #acb2be;
+}
+
+:root[data-theme="dark"] .form-field input,
+:root[data-theme="dark"] .form-field select {
+  border: 1px solid #262e3a;
+  background: #181e24;
+  color: #cfd7e9;
+}
+
+:root[data-theme="dark"] .field-error {
+  color: #cc6060;
+}
+
+:root[data-theme="dark"] .recurring-manage-row {
+  border-bottom: 1px solid #1d2530;
+}
+
+:root[data-theme="dark"] .recurring-manage-row .rm-name span {
+  color: #8c94a4;
+}
+
+:root[data-theme="dark"] .toast {
+  background: #dce2f0;
+  color: #111827;
+}
+
+
+/* --- dark-theme extras --- */
+
+/* "Reset all data" has no styles of its own (it is a plain browser button in the
+   light theme), so give it a dark equivalent instead of the browser's default grey. */
+:root[data-theme="dark"] .danger-text-button {
+  background: #252b36;
+  border: 1px solid #333b48;
+  color: #e6e8eb;
+}
+
+:root[data-theme="dark"] .modal-overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+:root[data-theme="dark"] input::placeholder {
+  color: #6b7280;
+}

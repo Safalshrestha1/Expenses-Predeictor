@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { logout, getCurrentUser, isAuthenticated } from "../utils/auth.js";
 import "../styles/Dashboard1.css";
 
 /* ---------------------------------------------------------- */
@@ -81,8 +83,10 @@ function seedData() {
     });
   }
 
+  const sessionUser = getCurrentUser();
+
   return {
-    name: "Safal Shrestha",
+    name: (sessionUser && sessionUser.fullName) || "Safal Shrestha",
     startBalance: 16300,
     budget: 40000,
     savingsGoal: 35000,
@@ -93,9 +97,16 @@ function seedData() {
   };
 }
 
-function loadState() {
+// Each logged-in account gets its own saved dashboard data, so one account
+// never sees another account's transactions after logout/login.
+function getDataKey() {
+  const user = getCurrentUser();
+  return user && user.email ? `${STORAGE_KEY}:${user.email}` : STORAGE_KEY;
+}
+
+function loadState(dataKey) {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(dataKey);
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed && parsed.transactions) return parsed;
@@ -111,7 +122,10 @@ function loadState() {
 /* ---------------------------------------------------------- */
 
 function Dashboard() {
-  const [state, setState] = useState(loadState);
+  const navigate = useNavigate();
+  // Resolved once per mount, so logging out can never redirect a save to a different key.
+  const [dataKey] = useState(getDataKey);
+  const [state, setState] = useState(() => loadState(dataKey));
   const [transactionFilter, setTransactionFilter] = useState("");
   const [showAllTransactions, setShowAllTransactions] = useState(false);
   const [range, setRange] = useState("this_month");
@@ -136,16 +150,35 @@ function Dashboard() {
 
   // persist on every state change
   useEffect(() => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    try { localStorage.setItem(dataKey, JSON.stringify(state)); }
     catch (e) { /* storage unavailable */ }
-  }, [state]);
+  }, [state, dataKey]);
 
-  // theme
+  // theme (cleared on unmount so the Login page isn't left with the dashboard theme after logout)
   useEffect(() => {
     const t = state.theme || "auto";
     if (t === "auto") document.documentElement.removeAttribute("data-theme");
     else document.documentElement.setAttribute("data-theme", t);
+    return () => document.documentElement.removeAttribute("data-theme");
   }, [state.theme]);
+
+  // session guard: if the session disappears while this page is open
+  // (logout in another tab, or the browser restoring a cached copy of this page
+  // via Back), send the user to Login instead of showing the dashboard.
+  useEffect(() => {
+    function guard() {
+      if (!isAuthenticated()) navigate("/login", { replace: true });
+    }
+    function onPageShow(e) {
+      if (e.persisted) guard();
+    }
+    window.addEventListener("storage", guard);
+    window.addEventListener("pageshow", onPageShow);
+    return () => {
+      window.removeEventListener("storage", guard);
+      window.removeEventListener("pageshow", onPageShow);
+    };
+  }, [navigate]);
 
   function showToast(msg) {
     const id = uid();
@@ -319,9 +352,13 @@ function Dashboard() {
   }
   function resetAllData() {
     const fresh = seedData();
-    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    try { localStorage.removeItem(dataKey); } catch (e) {}
     setState(fresh);
     showToast("Data reset to demo defaults.");
+  }
+  function handleLogout() {
+    logout(); // existing auth.js: removes the session from localStorage
+    navigate("/login", { replace: true }); // replace, so Back can't return to /dashboard
   }
 
   /* ---------------- form refs ---------------- */
@@ -440,7 +477,7 @@ function Dashboard() {
           <button className="nav-item" onClick={() => setActiveModal("settings")}>
             <span>⚙</span>Settings
           </button>
-          <button className="nav-item logout" onClick={() => showToast("Logout is disabled in this demo dashboard.")}>
+          <button className="nav-item logout" onClick={handleLogout}>
             <span>↪</span>Logout
           </button>
         </nav>
@@ -737,25 +774,25 @@ function Dashboard() {
           <button className="quick-action" onClick={() => openTxnModal("expense")}>
             <div className="quick-icon">+</div>
             <div><h3>Add Expense</h3><p>Record a new expense</p></div>
-            <button tabIndex={-1}>→</button>
+            <span className="quick-arrow">→</span>
           </button>
 
           <button className="quick-action" onClick={() => openTxnModal("income")}>
             <div className="quick-icon income-icon">↗</div>
             <div><h3>Add Income</h3><p>Record new income</p></div>
-            <button tabIndex={-1}>→</button>
+            <span className="quick-arrow">→</span>
           </button>
 
           <button className="quick-action" onClick={() => setActiveModal("budget")}>
             <div className="quick-icon budget-icon">▤</div>
             <div><h3>Set Budget</h3><p>Manage your monthly budget</p></div>
-            <button tabIndex={-1}>→</button>
+            <span className="quick-arrow">→</span>
           </button>
 
           <button className="quick-action" onClick={() => goTo("analytics")}>
             <div className="quick-icon analytics-icon">▥</div>
             <div><h3>View Analytics</h3><p>Explore spending patterns</p></div>
-            <button tabIndex={-1}>→</button>
+            <span className="quick-arrow">→</span>
           </button>
         </section>
 
